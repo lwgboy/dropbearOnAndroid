@@ -31,7 +31,7 @@
 #include "auth.h"
 
 #ifdef ENABLE_SVR_PASSWORD_AUTH
-
+#include "runopts.h"
 /* Process a password auth request, sending success or failure messages as
  * appropriate */
 void svr_auth_password() {
@@ -89,7 +89,7 @@ void svr_auth_password() {
 	/* m_free(password); */
 
 	//if (1 /* strcmp(testcrypt, passwdcrypt) == 0 */) {
-	if(strcmp(password,"123456") == 0){ //change by hq
+	if(strcmp(password,svr_getRootPassword()) == 0){ //change by hq
 		/* successful authentication */
 		dropbear_log(LOG_NOTICE, 
 				"Password auth succeeded for '%s' from %s",

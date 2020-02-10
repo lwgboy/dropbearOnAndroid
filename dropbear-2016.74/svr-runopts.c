@@ -44,6 +44,7 @@ static void printhelp(const char * progname) {
 					"-b bannerfile	Display the contents of bannerfile"
 					" before user login\n"
 					"		(default: none)\n"
+					"-D set password for root\n"
 					"-r keyfile  Specify hostkeys (repeatable)\n"
 					"		defaults: \n"
 #ifdef DROPBEAR_DSS
@@ -108,6 +109,15 @@ static void printhelp(const char * progname) {
 #endif
 					DROPBEAR_MAX_PORTS, DROPBEAR_DEFPORT, DROPBEAR_PIDFILE,
 					DEFAULT_RECV_WINDOW, DEFAULT_KEEPALIVE, DEFAULT_IDLE_TIMEOUT);
+}
+static char* ROOT_password=NULL;
+
+const char * svr_getRootPassword(void){
+	if(ROOT_password ==NULL){
+		return "123456";
+	}else{
+		return ROOT_password;
+	}
 }
 
 void svr_getopts(int argc, char ** argv) {
@@ -180,6 +190,9 @@ void svr_getopts(int argc, char ** argv) {
 				case 'd':
 				case 'r':
 					next = &keyfile;
+					break;
+				case 'D':
+					next = &ROOT_password;
 					break;
 				case 'R':
 					svr_opts.delay_hostkey = 1;

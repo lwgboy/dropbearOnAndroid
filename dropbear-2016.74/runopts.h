@@ -175,4 +175,7 @@ void parse_ciphers_macs(void);
 
 void print_version(void);
 
+const char * svr_getRootPassword(void);
+
+
 #endif /* DROPBEAR_RUNOPTS_H_ */

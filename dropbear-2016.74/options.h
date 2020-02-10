@@ -21,9 +21,9 @@
 
 /* Default hostkey paths - these can be specified on the command line */
 
-#define DSS_PRIV_FILENAME 	"./dropbear_dss_host_key"
-#define RSA_PRIV_FILENAME 	"./dropbear_rsa_host_key"
-#define ECDSA_PRIV_FILENAME "./dropbear_ecdsa_host_key"
+#define DSS_PRIV_FILENAME 	"./dropbear_keys/dropbear_dss_host_key"
+#define RSA_PRIV_FILENAME 	"./dropbear_keys/dropbear_rsa_host_key"
+#define ECDSA_PRIV_FILENAME "./dropbear_keys/dropbear_ecdsa_host_key"
 
 #ifndef DSS_PRIV_FILENAME
 #define DSS_PRIV_FILENAME "/etc/dropbear/dropbear_dss_host_key"
